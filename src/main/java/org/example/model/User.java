@@ -1,13 +1,12 @@
 package org.example.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -15,6 +14,13 @@ public class User {
 
     private Integer age;
 
+    public User(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public User() {
+    }
 
     public Integer getId() {
         return id;
